@@ -1,13 +1,24 @@
-import { useCallback } from "react";
+import { useState,useCallback } from "react";
 import { RadioGroup, Radio } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import styles from "./FilterBy2.module.css";
-const FilterBy2 = ({ onClose }) => {
+const FilterBy2 = ({ onClose,applyFilters,selectedFilters }) => {
   const navigate = useNavigate();
-
+  const [filters, setFilters] = useState(selectedFilters || {
+    sort: "",
+    genre: "",
+    bookType: "",
+  });
+  const handleFilterChange = (filterName, value) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterName]: value,
+    }));
+  };
   const onFilterButtonClick = useCallback(() => {
-    navigate("/home-page");
-  }, [navigate]);
+    applyFilters(filters); // Apply filters based on selectedFilters
+    onClose();
+  }, [applyFilters, onClose, filters]);
 
   return (
     <div className={styles.filterBy2}>
@@ -16,7 +27,12 @@ const FilterBy2 = ({ onClose }) => {
       </button>
       <div className={styles.bookType} id="book_type">
         <div className={styles.bookType1}>Book type</div>
-        <RadioGroup className={styles.priceHL} id="price_h_l">
+        <RadioGroup 
+        className={styles.priceHL} 
+        id="price_h_l"
+        value={filters.bookType}
+        onChange={(value) => handleFilterChange('bookType', value)}
+        >
           <Radio
             defaultChecked
             colorScheme="green"
@@ -27,7 +43,12 @@ const FilterBy2 = ({ onClose }) => {
             Price High to Low
           </Radio>
         </RadioGroup>
-        <RadioGroup className={styles.giveaway} id="giveaway">
+        <RadioGroup 
+        className={styles.giveaway} 
+        id="giveaway"
+        value={filters.bookType}
+        onChange={(value) => handleFilterChange('bookType', value)}
+        >
           <Radio
             defaultChecked
             colorScheme="green"
@@ -38,7 +59,12 @@ const FilterBy2 = ({ onClose }) => {
             Giveaway
           </Radio>
         </RadioGroup>
-        <RadioGroup className={styles.loan} id="loan">
+        <RadioGroup 
+        className={styles.loan} 
+        id="loan"
+        value={filters.bookType}
+        onChange={(value) => handleFilterChange('bookType', value)}
+        >
           <Radio
             defaultChecked
             colorScheme="green"
@@ -52,7 +78,11 @@ const FilterBy2 = ({ onClose }) => {
       </div>
       <div className={styles.genre} id="genre">
         <div className={styles.bookType1}>Genre</div>
-        <RadioGroup className={styles.drama} id="drama">
+        <RadioGroup 
+        className={styles.drama} 
+        id="drama"
+        value={filters.genre}
+        onChange={(value) => handleFilterChange('genre', value)}>
           <Radio
             defaultChecked
             colorScheme="green"
@@ -63,7 +93,11 @@ const FilterBy2 = ({ onClose }) => {
             Drama
           </Radio>
         </RadioGroup>
-        <RadioGroup className={styles.thriller} id="thriller">
+        <RadioGroup 
+        className={styles.thriller} 
+        id="thriller"
+        value={filters.genre}
+        onChange={(value) => handleFilterChange('genre', value)}>
           <Radio
             defaultChecked
             colorScheme="green"
@@ -74,7 +108,11 @@ const FilterBy2 = ({ onClose }) => {
             Thriller
           </Radio>
         </RadioGroup>
-        <RadioGroup className={styles.fiction} id="fiction">
+        <RadioGroup 
+        className={styles.fiction} 
+        id="fiction"
+        value={filters.genre}
+        onChange={(value) => handleFilterChange('genre', value)}>
           <Radio
             defaultChecked
             colorScheme="green"
@@ -85,7 +123,11 @@ const FilterBy2 = ({ onClose }) => {
             Fiction
           </Radio>
         </RadioGroup>
-        <RadioGroup className={styles.scienceFiction} id="sci_fi">
+        <RadioGroup 
+        className={styles.scienceFiction} 
+        id="sci_fi"
+        value={filters.genre}
+        onChange={(value) => handleFilterChange('genre', value)}>
           <Radio
             defaultChecked
             colorScheme="green"
@@ -96,7 +138,10 @@ const FilterBy2 = ({ onClose }) => {
             Science Fiction
           </Radio>
         </RadioGroup>
-        <RadioGroup className={styles.crime} id="crime">
+        <RadioGroup className={styles.crime} 
+        id="crime"
+        value={filters.genre}
+        onChange={(value) => handleFilterChange('genre', value)}>
           <Radio
             defaultChecked
             colorScheme="green"
@@ -111,7 +156,11 @@ const FilterBy2 = ({ onClose }) => {
       <div className={styles.sortBy} id="sort_by">
         <div className={styles.sortBy1}>Sort By</div>
         <div className={styles.frame}>
-          <RadioGroup className={styles.zA} id="z_to_a">
+          <RadioGroup 
+          className={styles.zA} 
+          id="z_to_a" 
+          value={filters.genre}
+          onChange={(value) => handleFilterChange('sort', value)}>
             <Radio
               defaultChecked
               colorScheme="green"

@@ -123,8 +123,15 @@
 .search {
   background-color: transparent;
   position: absolute;
-  top: 185px;
-  left: 991px;
+  top: 85px;
+  left: 1091px;
+}
+.searchButton {
+  background-color: #1df659;
+  border: none;
+  color: #fff;
+  padding: 0px 10px;
+  cursor: pointer;
 }
 .vectorIcon1 {
   position: absolute;
