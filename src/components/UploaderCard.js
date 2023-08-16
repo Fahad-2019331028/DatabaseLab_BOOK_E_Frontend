@@ -1,9 +1,10 @@
 import { useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./UploaderCard.module.css";
-const UploaderCard = () => {
+const UploaderCard = ({owner}) => {
   const navigate = useNavigate();
-
+if(owner)
+  console.log("owner found")
   const onViewClick = useCallback(() => {
     navigate("/uploader-profile");
   }, [navigate]);
@@ -26,7 +27,7 @@ const UploaderCard = () => {
         <div className={styles.viewProfile}>View Profile......</div>
       </Link>
       <h1 className={styles.name} id="tittle">
-        #Name
+        {owner.username}
       </h1>
       <h3 className={styles.uplodedBy}>Uploded by</h3>
     </div>

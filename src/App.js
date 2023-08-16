@@ -102,7 +102,7 @@ function App() {
       <Route path="/add-book" element={<AddBook />} />
       <Route path="/user-profile" element={<UserProfile />} />
       <Route path="/uploader-profile" element={<UploaderProfile />} />
-      <Route path="/book-details" element={<BookDetails />} />
+      <Route path="/book-details/:book_id" element={<BookDetails />} />
       <Route path="/home-page" element={<HomePage />} />
       <Route path="/sign-up-page" element={<SignUpPage />} />
       <Route path="/login-page" element={<LoginPage />} />

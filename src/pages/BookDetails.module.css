@@ -173,7 +173,7 @@
 .genre2 {
   position: relative;
   display: inline-block;
-  width: 332px;
+  width: 100px;
   height: 39px;
   flex-shrink: 0;
 }
@@ -185,7 +185,7 @@
   color: #9bf978;
 }
 .genre {
-  width: 422px;
+  width: 202px;
   overflow: hidden;
   display: flex;
   flex-direction: row;

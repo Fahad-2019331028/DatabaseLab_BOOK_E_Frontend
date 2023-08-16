@@ -43,7 +43,8 @@ const Book1 = ({
       <img className={styles.book1Item} alt="" src={rectangle5} />
       <Link
         className={styles.frameParent}
-        to="/book-details"
+        key={book.book_id}
+        to={`/book-details/${book.book_id}`}
         onClick={onFrameLinkClick}
       >
         <div className={styles.frame}>
