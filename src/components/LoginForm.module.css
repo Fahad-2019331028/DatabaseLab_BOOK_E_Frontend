@@ -1,0 +1,155 @@
+.loginSectionChild {
+  position: absolute;
+  top: 44px;
+  left: 33px;
+  border-radius: var(--br-31xl);
+  width: 520px;
+  height: 438px;
+  object-fit: cover;
+}
+.login {
+  position: relative;
+  font-size: var(--font-size-mini);
+  letter-spacing: 0.04em;
+  line-height: 150%;
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-gray-400);
+  text-align: left;
+}
+.login1,
+.loginButton {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginButton {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-3xl) var(--padding-11xl);
+  background-color: var(--color-lightgreen);
+  top: 329px;
+  left: 233px;
+  border-radius: var(--br-3xs);
+  width: 121px;
+  height: 50px;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.login1 {
+  margin: 0;
+  top: 69px;
+  left: 149px;
+  font-size: var(--font-size-13xl);
+  font-weight: 700;
+  font-family: var(--font-cinzel);
+  color: var(--color-honeydew);
+  text-align: center;
+  width: 295px;
+  height: 54px;
+}
+.passwordInputChild {
+  position: absolute;
+  top: 37px;
+  left: 193.52px;
+  width: 240px;
+  height: 2px;
+}
+.password,
+.password1 {
+  position: relative;
+  font-size: var(--font-size-2xl);
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  width: 185px;
+  height: 31px;
+  flex-shrink: 0;
+}
+.password1 {
+  border: 0;
+  background-color: transparent;
+  width: 235px;
+}
+.frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 440px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.emailInputChild,
+.passwordInput {
+  position: absolute;
+  top: 241px;
+  left: 82px;
+  width: 439px;
+  height: 40px;
+}
+.emailInputChild {
+  top: 37px;
+  left: 191.68px;
+  width: 240px;
+  height: 2px;
+}
+.email,
+.email1 {
+  position: relative;
+  font-size: var(--font-size-2xl);
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+  width: 185px;
+  height: 35px;
+  flex-shrink: 0;
+}
+.email1 {
+  border: 0;
+  background-color: transparent;
+  width: 235px;
+}
+.frame1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 440px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.emailInput {
+  position: absolute;
+  top: 172px;
+  left: 82px;
+  width: 433px;
+  height: 40px;
+}
+.dontHaveAn {
+  text-decoration: none;
+  position: absolute;
+  top: 391px;
+  left: 183px;
+  font-size: var(--font-size-smi);
+  letter-spacing: 0.04em;
+  line-height: 150%;
+  font-family: var(--font-inter);
+  color: var(--color-springgreen-100);
+  text-align: center;
+  cursor: pointer;
+}
+.loginSection {
+  align-self: stretch;
+  position: relative;
+  height: 527px;
+  overflow: hidden;
+  flex-shrink: 0;
+}

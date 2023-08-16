@@ -1,0 +1,53 @@
+.uploadedBooks1 {
+  margin: 0;
+  position: absolute;
+  top: 22.85px;
+  left: 40px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  width: 522px;
+  height: 82.72px;
+}
+.vectorIcon {
+  position: absolute;
+  height: 62.5%;
+  width: 83.33%;
+  top: 18.75%;
+  right: 8.33%;
+  bottom: 18.75%;
+  left: 8.33%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.fluentarrowImport24Filled {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 250px;
+  left: 1276px;
+  width: 68px;
+  height: 71px;
+  overflow: hidden;
+}
+.uploadedBooks {
+  position: absolute;
+  top: 510px;
+  left: 0;
+  background: linear-gradient(
+    128.6deg,
+    rgba(0, 234, 24, 0.45),
+    rgba(102, 164, 96, 0.6),
+    rgba(63, 234, 0, 0)
+  );
+  width: 1355px;
+  height: 552px;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-white);
+  font-family: var(--font-secular-one);
+}

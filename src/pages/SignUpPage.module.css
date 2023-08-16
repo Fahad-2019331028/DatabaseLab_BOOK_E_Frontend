@@ -1,0 +1,85 @@
+.bookE,
+.phbookThinIcon {
+  position: relative;
+  flex-shrink: 0;
+}
+.phbookThinIcon {
+  width: 47px;
+  height: 36px;
+  overflow: hidden;
+}
+.bookE {
+  letter-spacing: 0.04em;
+  display: inline-block;
+  width: 125px;
+  height: 49px;
+  cursor: pointer;
+}
+.icon {
+  width: 769px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-3xs);
+}
+.about {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  font-size: var(--font-size-base);
+  letter-spacing: 0.04em;
+  line-height: 150%;
+  font-family: var(--font-secular-one);
+  color: var(--color-white);
+  text-align: left;
+  display: inline-block;
+}
+.button,
+.navbarMsl {
+  width: 475px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbarMsl {
+  margin: 0;
+  position: absolute;
+  top: 5px;
+  left: 35px;
+  width: 1280px;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: var(--font-size-8xl);
+  color: var(--color-white);
+  font-family: var(--font-amita);
+}
+.bgBlurIcon {
+  position: absolute;
+  top: 59px;
+  left: 0;
+  width: 1355px;
+  height: 640px;
+  overflow: hidden;
+}
+.signUpSectionWrapper {
+  position: absolute;
+  top: 40px;
+  right: 661px;
+  width: 600px;
+  height: 660px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.signUpPage {
+  position: relative;
+  background-color: var(--color-gray-400);
+  width: 100%;
+  height: 710px;
+  overflow: auto;
+}

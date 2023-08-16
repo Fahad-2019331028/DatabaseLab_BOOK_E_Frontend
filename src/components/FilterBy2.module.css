@@ -1,0 +1,154 @@
+.filter {
+  position: relative;
+  font-size: var(--font-size-mini);
+  letter-spacing: 0.04em;
+  line-height: 150%;
+  font-family: var(--font-average);
+  color: var(--color-gray-200);
+  text-align: left;
+}
+.filterButton {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-3xl) var(--padding-11xl);
+  background-color: var(--color-lightgreen);
+  position: absolute;
+  top: 357px;
+  left: 100px;
+  border-radius: var(--br-3xs);
+  width: 75px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+.bookType1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 500;
+}
+.bookType,
+.giveaway,
+.loan,
+.priceHL {
+  position: absolute;
+  top: 31px;
+  left: 68px;
+}
+.bookType,
+.giveaway,
+.loan {
+  top: 51px;
+}
+.bookType,
+.loan {
+  top: 71px;
+}
+.bookType {
+  top: 257px;
+  left: 50px;
+  width: 221px;
+  height: 99px;
+}
+.drama {
+  position: absolute;
+  top: 135px;
+  left: 80px;
+}
+.fiction,
+.thriller {
+  position: absolute;
+  top: 71px;
+  left: 78px;
+}
+.fiction {
+  top: 103px;
+}
+.scienceFiction {
+  top: 43px;
+  left: 20px;
+}
+.crime,
+.genre,
+.scienceFiction {
+  position: absolute;
+}
+.crime {
+  top: 9px;
+  left: 86px;
+}
+.genre {
+  top: calc(50% - 111.5px);
+  left: 54px;
+  width: 199px;
+  height: 175px;
+}
+.sortBy1 {
+  position: relative;
+  font-weight: 500;
+  z-index: 0;
+}
+.zA {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.frame,
+.frame1 {
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.frame {
+  position: relative;
+  width: 101px;
+  height: 24px;
+  z-index: 1;
+}
+.frame1 {
+  margin: 0 !important;
+  position: absolute;
+  top: 35px;
+  left: 80px;
+  width: 89px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2;
+}
+.filterBy2,
+.sortBy {
+  box-sizing: border-box;
+}
+.sortBy {
+  position: absolute;
+  top: 33px;
+  left: 56px;
+  height: 67px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 7px var(--padding-0);
+  align-items: flex-start;
+  justify-content: center;
+  gap: 23px;
+}
+.filterBy2 {
+  position: relative;
+  border-radius: 25px;
+  background-color: rgba(46, 56, 58, 0.5);
+  backdrop-filter: blur(40px);
+  border: 2px solid rgba(255, 249, 249, 0.29);
+  width: 282px;
+  height: 413px;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: left;
+  font-size: var(--font-size-mid);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}

@@ -1,0 +1,130 @@
+.bookType1,
+.bookType2 {
+  position: relative;
+  font-weight: 600;
+}
+.bookType2 {
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+  display: inline-block;
+  width: 125px;
+  flex-shrink: 0;
+}
+.bookType {
+  position: absolute;
+  top: 21px;
+  left: 32px;
+  width: 277px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+.condition1 {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+  display: inline-block;
+  width: 139px;
+  flex-shrink: 0;
+}
+.condition {
+  position: absolute;
+  top: 63px;
+  left: 32px;
+  width: 277px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+.price1 {
+  margin: 0 !important;
+  position: absolute;
+  top: -2px;
+  left: 132px;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+  display: inline-block;
+  width: 132px;
+  flex-shrink: 0;
+  z-index: 0;
+}
+.price,
+.price2 {
+  position: absolute;
+  display: flex;
+}
+.price2 {
+  margin: 0 !important;
+  top: -3px;
+  left: 0;
+  font-weight: 600;
+  align-items: center;
+  width: 97px;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.price {
+  top: 105px;
+  left: 32px;
+  width: 261px;
+  flex-direction: row;
+  padding: var(--padding-3xs);
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.confirmOrder {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-5xl);
+  text-transform: capitalize;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: center;
+}
+.confirmButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-rosybrown);
+  position: absolute;
+  top: 147px;
+  left: 62px;
+  border-radius: var(--br-81xl);
+  width: 227px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.conditon {
+  position: absolute;
+  top: 401px;
+  left: calc(50% + 341.5px);
+  border-radius: var(--br-6xs);
+  background-color: var(--color-pink);
+  backdrop-filter: blur(100px);
+  width: 335px;
+  height: 197px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}

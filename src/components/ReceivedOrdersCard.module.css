@@ -1,0 +1,77 @@
+.orderedBookCardChild {
+  position: absolute;
+  top: 0.5px;
+  left: 0.5px;
+  border-radius: var(--br-19xl);
+  background-color: var(--color-darkslateblue);
+  backdrop-filter: blur(50px);
+  border: 2px solid var(--color-snow-100);
+  box-sizing: border-box;
+  width: 262px;
+  height: 484px;
+}
+.username {
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  top: 416px;
+  left: 120px;
+  text-transform: capitalize;
+  color: inherit;
+}
+.book1Wrapper {
+  position: absolute;
+  top: 4px;
+  left: -10px;
+  width: 320px;
+  height: 456px;
+}
+.confirm,
+.confirmButton {
+  display: flex;
+  justify-content: center;
+}
+.confirm {
+  position: relative;
+  font-size: var(--font-size-mini);
+  text-transform: capitalize;
+  font-family: var(--font-secular-one);
+  color: var(--color-white);
+  text-align: center;
+  align-items: center;
+  width: 63.45px;
+  height: 20.84px;
+  flex-shrink: 0;
+}
+.confirmButton {
+  cursor: pointer;
+  border: 1px solid var(--color-gray-400);
+  padding: var(--padding-0) 11.632183074951172px;
+  background-color: var(--color-gray-400);
+  position: absolute;
+  top: 441px;
+  left: 85px;
+  border-radius: var(--br-xl);
+  box-sizing: border-box;
+  width: 92px;
+  height: 36px;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.orderedBy {
+  position: absolute;
+  top: 416px;
+  left: 23px;
+  font-size: var(--font-size-mini);
+  text-transform: capitalize;
+  color: var(--color-white);
+}
+.orderedBookCard {
+  position: relative;
+  width: 268px;
+  height: 478px;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-springgreen-100);
+  font-family: var(--font-secular-one);
+}

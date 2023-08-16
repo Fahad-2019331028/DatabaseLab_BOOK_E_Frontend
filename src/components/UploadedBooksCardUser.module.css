@@ -1,0 +1,62 @@
+.uploadedBooks1 {
+  margin: 0;
+  position: absolute;
+  top: 25px;
+  left: 68px;
+  font-size: inherit;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  width: 522px;
+  height: 64px;
+}
+.addBooks {
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: left;
+}
+.addBooksButton,
+.myOrderButton,
+.orderedButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-aquamarine);
+  position: absolute;
+  top: 275px;
+  left: 1147px;
+  border-radius: var(--br-16xl);
+  width: 153px;
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.myOrderButton,
+.orderedButton {
+  top: 355px;
+}
+.orderedButton {
+  top: 195px;
+}
+.uploadedBooks {
+  position: absolute;
+  top: 539px;
+  left: 0;
+  background: linear-gradient(
+    128.6deg,
+    rgba(0, 234, 24, 0.45),
+    rgba(102, 164, 96, 0.6),
+    rgba(63, 234, 0, 0)
+  );
+  width: 1355px;
+  height: 556px;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-white);
+  font-family: var(--font-secular-one);
+}

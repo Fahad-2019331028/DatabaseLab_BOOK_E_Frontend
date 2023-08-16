@@ -1,0 +1,144 @@
+.phoneNumber {
+  position: relative;
+  font-weight: 500;
+  width: 194.21px;
+  flex-shrink: 0;
+}
+.name,
+.phone,
+.phoneNo,
+.phoneNumber {
+  display: flex;
+  align-items: center;
+}
+.phoneNo {
+  position: relative;
+  font-weight: 500;
+  width: 140.41px;
+  flex-shrink: 0;
+}
+.name,
+.phone {
+  position: absolute;
+}
+.phone {
+  top: 310px;
+  left: 0;
+  border-radius: var(--br-lgi);
+  background-color: var(--color-gainsboro-100);
+  width: 636px;
+  flex-direction: row;
+  padding: var(--padding-mid) 76.10800170898438px var(--padding-mid)
+    93.16666412353516px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.name {
+  margin: 0;
+  top: 0;
+  left: 5px;
+  font-size: var(--font-size-26xl);
+  font-weight: 700;
+  font-family: var(--font-cinzel);
+  color: var(--color-powderblue);
+  width: 1055px;
+  height: 75px;
+}
+.address1 {
+  position: relative;
+  font-weight: 500;
+  width: 118.77px;
+  flex-shrink: 0;
+}
+.address,
+.address1,
+.adress {
+  display: flex;
+  align-items: center;
+}
+.adress {
+  position: relative;
+  font-weight: 500;
+  width: 101.8px;
+  flex-shrink: 0;
+}
+.address {
+  position: absolute;
+  top: 240px;
+  left: 0;
+  border-radius: var(--br-lgi);
+  background-color: var(--color-gainsboro-100);
+  width: 633px;
+  flex-direction: row;
+  padding: var(--padding-mid) 92.66666412353516px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.uploaderPicIcon {
+  position: absolute;
+  top: 50px;
+  left: 760px;
+  border-radius: var(--br-12xl);
+  width: 335px;
+  height: 340px;
+  object-fit: cover;
+}
+.email1 {
+  position: relative;
+  font-weight: 500;
+  width: 74.39px;
+  flex-shrink: 0;
+}
+.email,
+.email1,
+.email2 {
+  display: flex;
+  align-items: center;
+}
+.email2 {
+  position: relative;
+  font-weight: 500;
+  width: 83.53px;
+  flex-shrink: 0;
+}
+.email {
+  position: absolute;
+  top: 170px;
+  left: 0;
+  border-radius: var(--br-lgi);
+  background-color: var(--color-gainsboro-100);
+  width: 633px;
+  flex-direction: row;
+  padding: var(--padding-mid) 92.66666412353516px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.rating {
+  position: relative;
+  font-weight: 500;
+}
+.name1 {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  border-radius: var(--br-lgi);
+  background-color: var(--color-gainsboro-100);
+  width: 426px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-mid) var(--padding-52xl);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+.infoSection {
+  position: absolute;
+  top: 90px;
+  left: 94px;
+  width: 1093px;
+  height: 410px;
+  text-align: left;
+  font-size: var(--font-size-mid);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}

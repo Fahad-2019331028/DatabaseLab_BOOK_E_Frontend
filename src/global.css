@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Amita:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Secular+One:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Otomanopee+One:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Average:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-inter: Inter;
+  --font-secular-one: "Secular One";
+  --font-amita: Amita;
+  --font-otomanopee-one: "Otomanopee One";
+  --font-average: Average;
+  --font-cinzel: Cinzel;
+
+  /* font sizes */
+  --font-size-5xl: 24px;
+  --font-size-base: 16px;
+  --font-size-8xl: 27px;
+  --font-size-mini: 15px;
+  --font-size-mid: 17px;
+  --font-size-26xl: 45px;
+  --font-size-sm: 14px;
+  --font-size-smi: 13px;
+  --font-size-13xl: 32px;
+  --font-size-lg: 18px;
+  --font-size-21xl: 40px;
+  --font-size-6xl: 25px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 21px;
+
+  /* Colors */
+  --color-gray-100: #0c272c;
+  --color-gray-200: #082327;
+  --color-gray-300: #011b1f;
+  --color-gray-400: #00181c;
+  --color-lightgreen: #6ed972;
+  --color-white: #fff;
+  --color-springgreen-100: #1df659;
+  --color-springgreen-200: rgba(29, 246, 89, 0.2);
+  --color-snow-100: rgba(255, 252, 252, 0.35);
+  --color-lightgoldenrodyellow-100: #d3ffd5;
+  --color-lightgoldenrodyellow-200: #cbfecd;
+  --color-darkslateblue: rgba(55, 81, 148, 0.25);
+  --color-skyblue: rgba(89, 173, 208, 0.87);
+  --color-gainsboro-200: rgba(217, 217, 217, 0.1);
+  --color-gainsboro-100: rgba(217, 217, 217, 0.2);
+  --color-powderblue: #c3f4ff;
+  --color-aquamarine: rgba(194, 251, 210, 0.49);
+  --color-pink: rgba(255, 189, 189, 0.25);
+  --color-rosybrown: rgba(165, 128, 128, 0.67);
+  --color-honeydew: #f1fff2;
+
+  /* Gaps */
+  --gap-3xs: 10px;
+  --gap-10xs: 3px;
+  --gap-6xs: 7px;
+  --gap-xs: 12px;
+  --gap-base: 16px;
+
+  /* Paddings */
+  --padding-3xl: 22px;
+  --padding-11xl: 30px;
+  --padding-3xs-5: 9.5px;
+  --padding-mid: 17px;
+  --padding-xs-6: 11.6px;
+  --padding-17xl: 36px;
+  --padding-0: 0px;
+  --padding-3xs: 10px;
+  --padding-52xl: 71px;
+  --padding-73xl-7: 92.7px;
+  --padding-57xl-1: 76.1px;
+  --padding-74xl-2: 93.2px;
+  --padding-13xl-9: 32.9px;
+  --padding-18xl-3: 37.3px;
+
+  /* border radiuses */
+  --br-3xs: 10px;
+  --br-24xl: 43px;
+  --br-mini: 15px;
+  --br-11xl: 30px;
+  --br-xl: 20px;
+  --br-19xl: 38px;
+  --br-16xl: 35px;
+  --br-smi: 13px;
+  --br-lgi: 19px;
+  --br-12xl: 31px;
+  --br-base: 16px;
+  --br-6xs: 7px;
+  --br-81xl: 100px;
+  --br-31xl: 50px;
+}

@@ -1,0 +1,40 @@
+.orderCardChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-19xl);
+  background-color: var(--color-darkslateblue);
+  backdrop-filter: blur(50px);
+  border: 2px solid var(--color-snow-100);
+  box-sizing: border-box;
+  width: 268px;
+  height: 465px;
+}
+.checkStatus {
+  position: relative;
+  font-weight: 500;
+}
+.checkStatusButton {
+  position: absolute;
+  top: 425px;
+  left: 61px;
+  border-radius: var(--br-16xl);
+  background-color: var(--color-springgreen-100);
+  width: 150px;
+  height: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+}
+.orderCard {
+  position: absolute;
+  top: 0;
+  left: 9px;
+  width: 279px;
+  height: 478px;
+}
