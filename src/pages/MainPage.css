@@ -1,0 +1,140 @@
+.pic1-mainpage-icon {
+  position: absolute;
+  top: 0;
+  left: 55%;
+  width: 52%;
+  height: 100%;
+  object-fit: cover;
+}
+.book-e {
+  margin: 0;
+  position: absolute;
+  top: 160px;
+  left: 59px;
+  font-size: inherit;
+  font-weight: 200;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  width: 698px;
+  height: 201px;
+}
+.reuse-and-recycle,
+.sign-up {
+  letter-spacing: 0.04em;
+  line-height: 150%;
+}
+.reuse-and-recycle {
+  margin: 0;
+  position: absolute;
+  top: 378px;
+  left: 81px;
+  font-size: var(--font-size-31xl);
+  font-weight: 400;
+  font-family: var(--font-cinzel);
+  display: inline-block;
+  width: 661px;
+}
+.sign-up {
+  position: relative;
+  font-size: var(--font-size-5xl);
+  font-weight: 500;
+  font-family: var(--font-inter);
+  color: var(--color-lightcyan-100);
+  text-align: left;
+}
+.bttn,
+.sign-up-button {
+  height: 68px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+}
+.sign-up-button {
+  cursor: pointer;
+  border: 1px solid var(--color-lightcyan-200);
+  padding: var(--padding-3xl) var(--padding-11xl);
+  background-color: var(--color-gray);
+  border-radius: var(--br-3xs);
+  width: 165px;
+  justify-content: center;
+}
+.bttn {
+  top: 585px;
+  left: 170px;
+  width: 453px;
+  overflow: hidden;
+  padding: 0 var(--padding-3xs);
+  justify-content: flex-start;
+  gap: var(--gap-81xl);
+}
+.body,
+.book-e1,
+.bttn {
+  position: absolute;
+}
+.body {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 750px;
+  text-align: left;
+  font-size: 10rem;
+  color: var(--color-lightcyan-100);
+  font-family: var(--font-signika);
+}
+.book-e1 {
+  margin: 0 !important;
+  top: 8px;
+  left: 60px;
+  z-index: 0;
+}
+.book-e-icon {
+  margin: 0 !important;
+  top: 6.5px;
+  left: 13px;
+  width: 47px;
+  height: 36px;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.book-e-icon,
+.icon,
+.navbar {
+  position: absolute;
+}
+.icon {
+  top: 7px;
+  left: 57px;
+  width: 169px;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-3xs) var(--padding-8xs);
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-3xs);
+}
+.navbar {
+  top: 0;
+  left: 0;
+  background-color: var(--color-darkslategray-200);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 3.75rem;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-11xl);
+  color: var(--color-azure-300);
+  font-family: var(--font-ruluko);
+}
+.main-page {
+  position: relative;
+  background: linear-gradient(255.45deg, #2c4a48, #182b2a 46.64%, #1b2d2d);
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+}

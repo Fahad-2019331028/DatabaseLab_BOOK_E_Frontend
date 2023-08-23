@@ -5,16 +5,16 @@ import {
   useLocation,
 } from "react-router-dom";
 import MainPage from "./pages/MainPage";
-import ReceivedOrderPage from "./pages/ReceivedOrderPage";
-import MyOrders from "./pages/MyOrders";
-import EditProfile from "./pages/EditProfile";
-import AddBook from "./pages/AddBook";
-import UserProfile from "./pages/UserProfile";
-import UploaderProfile from "./pages/UploaderProfile";
-import BookDetails from "./pages/BookDetails";
 import HomePage from "./pages/HomePage";
-import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import ReceivedPage from "./pages/ReceivedPage";
+import MyorderPage from "./pages/MyorderPage";
+import AddbookPage from "./pages/AddbookPage";
+import EditprofilePage from "./pages/EditprofilePage";
+import UserprofilePage from "./pages/UserprofilePage";
+import UploaderprofilePage from "./pages/UploaderprofilePage";
+import BookdetailPage from "./pages/BookdetailPage";
 import { useEffect } from "react";
 
 function App() {
@@ -37,35 +37,11 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/received-order-page":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/my-orders":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/edit-profile":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/add-book":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/user-profile":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/uploader-profile":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/book-details":
-        title = "";
-        metaDescription = "";
-        break;
       case "/home-page":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/login-page":
         title = "";
         metaDescription = "";
         break;
@@ -73,7 +49,31 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/login-page":
+      case "/sign-up-page4":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/sign-up-page3":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/sign-up-page2":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/sign-up-page1":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/userprofile-page":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/uploaderprofile-page":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/bookdetail-page":
         title = "";
         metaDescription = "";
         break;
@@ -96,16 +96,16 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="/received-order-page" element={<ReceivedOrderPage />} />
-      <Route path="/my-orders" element={<MyOrders />} />
-      <Route path="/edit-profile" element={<EditProfile />} />
-      <Route path="/add-book" element={<AddBook />} />
-      <Route path="/user-profile" element={<UserProfile />} />
-      <Route path="/uploader-profile" element={<UploaderProfile />} />
-      <Route path="/book-details/:book_id" element={<BookDetails />} />
       <Route path="/home-page" element={<HomePage />} />
-      <Route path="/sign-up-page" element={<SignUpPage />} />
       <Route path="/login-page" element={<LoginPage />} />
+      <Route path="/sign-up-page" element={<SignupPage />} />
+      <Route path="/sign-up-page4" element={<ReceivedPage />} />
+      <Route path="/sign-up-page3" element={<MyorderPage />} />
+      <Route path="/sign-up-page2" element={<AddbookPage />} />
+      <Route path="/sign-up-page1" element={<EditprofilePage />} />
+      <Route path="/userprofile-page" element={<UserprofilePage />} />
+      <Route path="/uploaderprofile-page/:user_id" element={<UploaderprofilePage />} />
+      <Route path="/bookdetail-page/:book_id" element={<BookdetailPage />} />
     </Routes>
   );
 }

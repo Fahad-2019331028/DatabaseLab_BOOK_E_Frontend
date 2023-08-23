@@ -1,59 +1,41 @@
-import { useCallback, useEffect, useState  } from "react";
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
-import { ArrowBackIcon } from "@chakra-ui/icons";
+import { useState,useEffect, useCallback } from "react";
+import FilterBy from "../components/FilterBy";
+import PortalPopup from "../components/PortalPopup";
 import { useNavigate } from "react-router-dom";
-import FilterButton from "../components/FilterButton";
-import BookForm from "../components/BookForm";
-import styles from "./HomePage.module.css";
-import { api } from '../services/api';
-// import { Link } from "react-router-dom";
-
+import { api } from "../services/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./HomePage.css";
 const HomePage = () => {
-  const navigate = useNavigate();
+  const [isFilterByPopupOpen, setFilterByPopupOpen] = useState(false);
   const [books, setBooks] = useState([]);
-  const [filteredBooks, setFilteredBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const booksPerPage = 5;
   const [searchQuery, setSearchQuery] = useState("");
-  const [filters, setFilters] = useState({
-    sort: "",
-    genre: "",
-    bookType: "",
-  });
-  useEffect(() => {
-    // Fetch books from API and set them in the state
-    const fetchBooks = async () => {
-      try {
-        const response = await api.get("/api/book/allbooks"); // Use Axios for the API request
+  const [filters, setFilters] = useState({});
+  const booksPerPage = 4;
+  const navigate = useNavigate();
+  const fetchBooks = useCallback(async () => {
+    try {
+      const response = await api.get("/api/book/allbooks"); // Use Axios for the API request
         const data = response.data;
         setBooks(data.books);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchBooks();
+    } catch (error) {
+      console.error(error);
+      toast.error("Error fetching books");
+    }
   }, []);
-  
-  const applyFilters = (selectedFilters) => {
-    const { sort, genre, bookType } = selectedFilters;
 
-    // Send the API request with the selected filters
-    api.get(`/api/book/filter?sort=${sort}&genre=${genre}&bookType=${bookType}`)
-      .then(response => {
-        const filteredBooksData = response.data;
-        setFilteredBooks(filteredBooksData); // Update the filtered books in HomePage
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
-
+  useEffect(() => {
+    fetchBooks();
+  }, [fetchBooks]);
+  const onViewbookLinkClick = useCallback((book_id) => {
+    navigate(`/bookdetail-page/${book_id}`);
+  }, [navigate]);
   const onSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
-  const onSearchSubmit = async () => {
+  const onSearchSubmit = async (e) => {
+    e.preventDefault()
     try {
       const response = await api.get(`/api/book/search?searchQuery=${searchQuery}`);
       const searchResults = response.data;
@@ -62,119 +44,169 @@ const HomePage = () => {
       console.error(error);
     }
   };
-  const onFrameLinkClick = useCallback(() => {
-    navigate("/book-details");
-  }, [navigate]);
+  const handleApplyFilter = useCallback(
+    async (selectedFilters) => {
+      try {
+        setFilters(selectedFilters);
+        const response = await api.get("/api/book/filter", {
+          params: selectedFilters,
+        });
+        const filteredBooks = response.data;
+        setBooks(filteredBooks);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    []
+  );
+  // const onViewbookLink1Click = useCallback(() => {
+  //   navigate("/bookdetail-page");
+  // }, [navigate]);
 
-  const onBOOKETextClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
+  // const onViewbookLink2Click = useCallback(() => {
+  //   navigate("/bookdetail-page");
+  // }, [navigate]);
+
+  // const onViewbookLink3Click = useCallback(() => {
+  //   navigate("/bookdetail-page");
+  // }, [navigate]);
+
+  // const onViewbookLink4Click = useCallback(() => {
+  //   navigate("/bookdetail-page");
+  // }, [navigate]);
+
+  // const onViewbookLink5Click = useCallback(() => {
+  //   navigate("/bookdetail-page");
+  // }, [navigate]);
+
+  const openFilterByPopup = useCallback(() => {
+    setFilterByPopupOpen(true);
+  }, []);
+
+  const closeFilterByPopup = useCallback(() => {
+    setFilterByPopupOpen(false);
+  }, []);
 
   const onProfileClick = useCallback(() => {
-    navigate("/user-profile");
+    navigate("/userprofile-page");
   }, [navigate]);
 
-  const onLogOutClick = useCallback(() => {
+  const onLogoutContainerClick = useCallback(() => {
     navigate("/login-page");
   }, [navigate]);
-
   const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  // const onFilterButtonClick = useCallback(() => {
-  //   // Open the filter popup or apply filters directly
-  //   // You can implement the logic as per your design
-  //   // For example, you can set state to open a modal or directly call applyFilters here
-  //   applyFilters(filters);
-  // }, [filters]);
-
-  // const onFluentarrowImport24FilledClick = useCallback(() => {
-  //   const anchor = document.querySelector("[data-scroll-to='bookSection']");
-  //   if (anchor) {
-  //     anchor.scrollIntoView({ block: "start", behavior: "smooth" });
-  //   }
-  // }, []);
   const totalPages = Math.ceil(books.length / booksPerPage);
   console.log(books)
   return (
-    <div className={styles.homePage}>
-      <nav className={styles.navbar} id="navbar" navbar={true}>
-        <div className={styles.icon}>
-          <img className={styles.phbookThinIcon} alt="" src="/phbookthin.svg" />
-          <div className={styles.bookE} onClick={onBOOKETextClick}>
-            BOOK-E
+    <>
+      <div className="home-page">
+        <main className="body1">
+          <h4 className="for-you">For You..</h4>
+          <h1 className="available-books">Available BOOKS</h1>
+          
+          <div className="book-sec">
+          {books
+          .slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage)
+          .map((book) => (
+              <div className="book" key={book.book_id}>
+                <img className="book-pic-icon" alt="" src={book.book_img_url} />
+                <h2 className="title">{book.title}</h2>
+                <h4 className="author">{book.author}</h4>
+                <div className="gnre">
+                  <div className="genre">Genre</div>
+                  <div className="genre1">{book.genre}</div>
+                </div>
+                <div className="gnre">
+                  <div className="book-type">Condition</div>
+                  <div className="condition2">{book.book_condition}</div>
+                </div>
+              <div className="gnre">
+                <div className="book-type">Book Type</div>
+                <div className="condition2">{book.price ? `$ ${book.price}`: (book.is_for_loan ? "Loan" : "Giveaway")}</div>
+              </div>
+              <a
+                  className="viewbook-link"
+                  onClick={() => onViewbookLinkClick(book.book_id)}
+                >
+                  <div className="frame">
+                    <div className="frame-child" />
+                    <div className="frame-wrapper">
+                      <img className="frame-icon" alt="" src="/frame.svg" />
+                    </div>
+                  </div>
+                  <div className="view-book">View Book.......</div>
+                </a>
+              </div>
+              ))}
+              <div className="pagination">
+              {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                className={
+                  currentPage === index + 1 ? "currentPageButton" : "pageButton"
+                }
+                onClick={() => onPageChange(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
+            </div>
           </div>
-        </div>
-        <div className={styles.button}>
-          <button className={styles.homePage1}>Home Page</button>
-          <div className={styles.aboutUs}>About Us</div>
-          <button className={styles.profile} onClick={onProfileClick}>
-            <img className={styles.frameIcon} alt="" src="/frame.svg" />
-            <button className={styles.homePage1}>Profile</button>
-          </button>
-          <div className={styles.logout}>
-            <button className={styles.logOut} onClick={onLogOutClick}>
-              Log Out
+          
+       
+          
+
+          <form className="search" onClick={onSearchSubmit}>
+            
+            <input
+              className="search-here"
+              type="text"
+              placeholder="Search Here"
+              id="search"
+              value={searchQuery}
+              onChange={onSearchChange}
+            />
+            <button className="search-bttn" >
+              <div className="search1">Search</div>
+              <div className="search-bttn-child" />
             </button>
-            <img className={styles.vectorIcon} alt="" src="/vector.svg" />
-          </div>
-        </div>
-      </nav>
-      <img className={styles.bgRestIcon} alt="" src="/bg_blur.svg" />
-      <InputGroup className={styles.search} width="158px" w="258px">
-      <InputLeftElement
-        pointerEvents="none"
-        children={<ArrowBackIcon color="gray.300" />}
-      />
-      <Input
-        variant="outline"
-        textColor="#fff"
-        backgroundColor="#1df659"
-        borderColor="#222a36"
-        focusBorderColor="#1df659"
-        placeholder="Search Here"
-        value={searchQuery}
-        onChange={onSearchChange}
-      />
-      <button className={styles.searchButton} onClick={onSearchSubmit}>
-        Search
-      </button>
-    </InputGroup>
-      <FilterButton applyFilters={applyFilters} selectedFilters={filters}/>
-      {/* Pagination */}
-      <div className={styles.pagination}>
-        {Array.from({ length: totalPages }).map((_, index) => (
-          <button
-            key={index}
-            className={
-              currentPage === index + 1
-                ? styles.currentPageButton
-                : styles.pageButton
-            }
-            onClick={() => onPageChange(index + 1)}
-          >
-            {index + 1}
+          </form>
+          <button className="filter-bttn" onClick={openFilterByPopup}>
+            <div className="filter-by1">Filter By</div>
+            <div className="filter-bttn-child" />
           </button>
-        ))}
+          <ToastContainer /> {/* React Toastify container */}
+        </main>
+        <header className="navbar1">
+          <div className="icon1">
+            <div className="book-e2">Book-E</div>
+            <img className="book-e-icon1" alt="" src="/bookeicon.svg" />
+          </div>
+          <div className="nav-bttn">
+            <button className="home-page1">Home Page</button>
+            <button className="profile" onClick={onProfileClick}>
+              <img className="pr-icon" alt="" src="/pr-icon.svg" />
+              <button className="home-page1">Profile</button>
+            </button>
+            <div className="logout" onClick={onLogoutContainerClick}>
+              <button className="log-out">Log Out</button>
+              <img className="logout-icon" alt="" src="/logout-icon.svg" />
+            </div>
+          </div>
+        </header>
       </div>
-      <div className={styles.bookSection} id="book_section">
-        {(filteredBooks.length > 0 ? filteredBooks : books)
-        .slice((currentPage - 1) * booksPerPage, currentPage * booksPerPage)
-        .map((book,i) => (
-            <BookForm
-              book={book}
-              key={book.book_id}
-              imageDimensions="/rectangle-15@2x.png"
-              carImageDimensions={book.image}
-              imageDimensionsString="/frame2.svg"
-              propLeft={`${i*270}px`}
-              propTop="10px"
-              onFrameLinkClick={onFrameLinkClick}
-            >
-            </BookForm>     
-          ))}
-      </div>
-    </div>
+      {isFilterByPopupOpen && (
+        <PortalPopup
+          overlayColor="rgba(113, 113, 113, 0.3)"
+          placement="Centered"
+          onOutsideClick={closeFilterByPopup}
+        >
+          <FilterBy onClose={closeFilterByPopup} onApplyFilter={handleApplyFilter} />
+        </PortalPopup>
+      )}
+    </>
   );
 };
 

@@ -1,96 +1,107 @@
-@import url("https://fonts.googleapis.com/css2?family=Amita:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Secular+One:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Otomanopee+One:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ruluko:wght@400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Average:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Secular+One:wght@400&display=swap");
 body {
   margin: 0;
   line-height: normal;
 }
 :root {
   /* fonts */
+  --font-ruluko: Ruluko;
   --font-inter: Inter;
-  --font-secular-one: "Secular One";
-  --font-amita: Amita;
-  --font-otomanopee-one: "Otomanopee One";
-  --font-average: Average;
   --font-cinzel: Cinzel;
+  --font-signika: Signika;
+  --font-average: Average;
+  --font-secular-one: "Secular One";
 
   /* font sizes */
+  --font-size-11xl: 30px;
   --font-size-5xl: 24px;
-  --font-size-base: 16px;
-  --font-size-8xl: 27px;
-  --font-size-mini: 15px;
+  --font-size-31xl: 50px;
   --font-size-mid: 17px;
-  --font-size-26xl: 45px;
-  --font-size-sm: 14px;
-  --font-size-smi: 13px;
-  --font-size-13xl: 32px;
+  --font-size-mini: 15px;
+  --font-size-base: 16px;
   --font-size-lg: 18px;
+  --font-size-3xl: 22px;
+  --font-size-71xl: 90px;
   --font-size-21xl: 40px;
-  --font-size-6xl: 25px;
+  --font-size-131xl: 150px;
   --font-size-xl: 20px;
-  --font-size-2xl: 21px;
+  --font-size-6xl: 25px;
+  --font-size-46xl: 65px;
 
   /* Colors */
-  --color-gray-100: #0c272c;
-  --color-gray-200: #082327;
-  --color-gray-300: #011b1f;
-  --color-gray-400: #00181c;
-  --color-lightgreen: #6ed972;
+  --color-darkslategray-100: #182b2a;
+  --color-darkslategray-200: rgba(24, 43, 42, 0.01);
+  --color-azure-100: #f1fffe;
+  --color-azure-200: #f0fffe;
+  --color-azure-300: #ebfaf9;
+  --color-azure-400: rgba(235, 250, 249, 0.5);
+  --color-lightcyan-100: #e0fffd;
+  --color-lightcyan-300: rgba(224, 255, 253, 0.3);
+  --color-lightcyan-200: rgba(224, 255, 253, 0.5);
+  --color-gray-100: #fffefe;
+  --color-gray: #00181c;
   --color-white: #fff;
-  --color-springgreen-100: #1df659;
-  --color-springgreen-200: rgba(29, 246, 89, 0.2);
-  --color-snow-100: rgba(255, 252, 252, 0.35);
-  --color-lightgoldenrodyellow-100: #d3ffd5;
-  --color-lightgoldenrodyellow-200: #cbfecd;
-  --color-darkslateblue: rgba(55, 81, 148, 0.25);
-  --color-skyblue: rgba(89, 173, 208, 0.87);
-  --color-gainsboro-200: rgba(217, 217, 217, 0.1);
-  --color-gainsboro-100: rgba(217, 217, 217, 0.2);
-  --color-powderblue: #c3f4ff;
-  --color-aquamarine: rgba(194, 251, 210, 0.49);
-  --color-pink: rgba(255, 189, 189, 0.25);
-  --color-rosybrown: rgba(165, 128, 128, 0.67);
-  --color-honeydew: #f1fff2;
+  --color-gainsboro: rgba(217, 217, 217, 0.5);
+  --color-darkgray: rgba(159, 172, 172, 0.5);
+  --color-aqua-100: #00ffff;
+  --color-aqua-200: rgba(0, 255, 255, 0.97);
+  --color-dimgray: rgba(89, 122, 120, 0.57);
 
   /* Gaps */
   --gap-3xs: 10px;
+  --gap-81xl: 100px;
+  --gap-735xl: 754px;
   --gap-10xs: 3px;
   --gap-6xs: 7px;
-  --gap-xs: 12px;
-  --gap-base: 16px;
+  --gap-3xl: 22px;
+  --gap-5xs: 8px;
+  --gap-26xl: 45px;
+  --gap-51xl: 70px;
+  --gap-xl: 20px;
+  --gap-34xl: 53px;
+  --gap-61xl: 80px;
+  --gap-25xl: 44px;
+  --gap-lgi: 19px;
+  --gap-11xl: 30px;
+  --gap-lg: 18px;
+  --gap-31xl: 50px;
+  --gap-2xl: 21px;
+  --gap-smi: 13px;
 
   /* Paddings */
+  --padding-3xs: 10px;
+  --padding-8xs: 5px;
   --padding-3xl: 22px;
   --padding-11xl: 30px;
+  --padding-23xl: 42px;
+  --padding-6xs: 7px;
+  --padding-30xl: 49px;
+  --padding-38xl: 57px;
+  --padding-7xs: 6px;
+  --padding-13xl: 32px;
+  --padding-32xl: 51px;
+  --padding-lg: 18px;
   --padding-3xs-5: 9.5px;
-  --padding-mid: 17px;
-  --padding-xs-6: 11.6px;
-  --padding-17xl: 36px;
-  --padding-0: 0px;
-  --padding-3xs: 10px;
-  --padding-52xl: 71px;
-  --padding-73xl-7: 92.7px;
-  --padding-57xl-1: 76.1px;
-  --padding-74xl-2: 93.2px;
-  --padding-13xl-9: 32.9px;
-  --padding-18xl-3: 37.3px;
+  --padding-31xl: 50px;
+  --padding-21xl: 40px;
+  --padding-12xl: 31px;
+  --padding-smi: 13px;
+  --padding-9xs: 4px;
+  --padding-2xs: 11px;
+  --padding-xl: 20px;
+  --padding-46xl: 65px;
+  --padding-19xl: 38px;
+  --padding-27xl: 46px;
 
   /* border radiuses */
   --br-3xs: 10px;
+  --br-8xs: 5px;
+  --br-xl: 20px;
   --br-24xl: 43px;
   --br-mini: 15px;
-  --br-11xl: 30px;
-  --br-xl: 20px;
-  --br-19xl: 38px;
-  --br-16xl: 35px;
-  --br-smi: 13px;
-  --br-lgi: 19px;
-  --br-12xl: 31px;
-  --br-base: 16px;
-  --br-6xs: 7px;
-  --br-81xl: 100px;
-  --br-31xl: 50px;
 }
