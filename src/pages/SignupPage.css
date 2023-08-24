@@ -1,8 +1,8 @@
 .pic1-mainpage-icon2 {
   position: absolute;
   top: 0;
-  left: 55%;
-  width: 52%;
+  left: 49%;
+  width: 51%;
   height: 100%;
   object-fit: cover;
 }
@@ -14,7 +14,7 @@
 }
 .book-e5 {
   top: 60%;
-  left: 839px;
+  left: 800px;
   font-size: var(--font-size-131xl);
   font-family: inherit;
   display: flex;
@@ -266,7 +266,7 @@
 .body3 {
   top: 0;
   left: 0;
-  width: 1440px;
+  width: 100%;
   height: 750px;
   text-align: left;
   font-size: var(--font-size-21xl);

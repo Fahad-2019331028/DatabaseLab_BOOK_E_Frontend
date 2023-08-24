@@ -2,7 +2,7 @@
   margin: 0;
   position: absolute;
   top: 128px;
-  left: 777px;
+  left: 850px;
   font-size: inherit;
   font-weight: 400;
   font-family: inherit;
@@ -10,8 +10,8 @@
 .available-books {
   margin: 0;
   position: absolute;
-  top: 33px;
-  left: 93px;
+  top: 30px;
+  left: 200px;
   font-size: var(--font-size-71xl);
   font-weight: 700;
   font-family: var(--font-signika);
@@ -54,7 +54,8 @@
   width: 68.75px;
 }
 .genre1 {
-  color: var(--color-aqua-200);
+  /*color: var(--color-aqua-200);*/
+  color: #60fb8c;
   width: 131.25px;
 }
 .gnre {
@@ -71,7 +72,7 @@
   flex-shrink: 0;
 }
 .condition2 {
-  color: var(--color-aqua-100);
+  color: #60fb8c;
   width: 118.37px;
 }
 .book-type {
@@ -134,7 +135,7 @@
   cursor: pointer;
   text-align: center;
   font-size: var(--font-size-mini);
-  color: var(--color-aqua-100);
+  color: #60fb8c;
   font-family: var(--font-inter);
 }
 .book,
@@ -261,8 +262,8 @@
   padding: 0 0 0 12.164448738098145px;
   background-color: transparent;
   position: absolute;
-  top: 154px;
-  left: 143px;
+  top: 170px;
+  left: 210px;
   backdrop-filter: blur(40px);
   height: 26px;
   display: flex;
@@ -274,8 +275,8 @@
   position: absolute;
   top: 60px;
   left: 0;
-  width: 1440px;
-  
+  width: 100%;
+  display: flex;
   text-align: left;
   font-size: var(--font-size-31xl);
   color: var(--color-white);
@@ -434,7 +435,7 @@
 }
 
 .currentPageButton {
-  background-color: #1df659;
+  background-color: #60fb8c;
   border: none;
   color: #fff;
   padding: 5px 10px;

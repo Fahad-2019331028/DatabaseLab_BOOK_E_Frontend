@@ -205,7 +205,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  gap:60px;
+  gap:10px;
 }
 .add-photo-url,
 .add-url {
@@ -235,7 +235,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: var(--gap-31xl);
-  gap: 90px;
+  gap: 40px;
 }
 .book-typ36,
 .condition55 {
@@ -272,7 +272,18 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: var(--gap-51xl);
-  gap: 140px;
+  gap: 100px;
+}
+.booktyp85 {
+  border-bottom: 2px solid var(--color-lightcyan-200);
+  box-sizing: border-box;
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-51xl);
+  gap: 90px;
 }
 .price2 {
   border: 0;
@@ -297,7 +308,18 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: var(--gap-81xl);
-  gap: 190px;
+  gap: 180px;
+}
+.price4 {
+  border-bottom: 2px solid var(--color-lightcyan-200);
+  box-sizing: border-box;
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-81xl);
+  gap: 100px;
 }
 .add {
   position: relative;

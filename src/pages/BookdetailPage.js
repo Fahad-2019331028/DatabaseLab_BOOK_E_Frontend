@@ -108,11 +108,11 @@ const BookdetailPage = () => {
           </div>
           <div className="booktp">
             <div className="conditon">Book Type</div>
-            <div className="conditon1">{book.price ? `$ ${book.price}`: (book.is_for_loan ? "Loan" : "Giveaway")}</div>
+            <div className="conditon1">{book.is_for_sale ? "Sale": (book.is_for_loan ? "Loan" : "Giveaway")}</div>
           </div>
           <div className="prc">
             <div className="conditon">Price</div>
-            <div className="conditon1">{book.price?book.price:"N/A"}</div>
+            <div className="conditon1">{book.price?`$${book.price}`:"N/A"}</div>
           </div>
           <div className="up">
             <div className="conditon">Upoladed BY</div>

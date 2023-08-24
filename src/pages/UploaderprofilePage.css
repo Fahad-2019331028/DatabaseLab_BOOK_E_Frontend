@@ -236,7 +236,7 @@
 }
 .uploadedbook-sec1 {
   border-bottom: 5px solid var(--color-lightcyan-200);
-  height: 685px;
+  height: 750px;
   flex-direction: column;
   padding: var(--padding-27xl) var(--padding-21xl);
   gap: var(--gap-25xl);

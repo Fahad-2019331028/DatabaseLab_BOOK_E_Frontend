@@ -52,7 +52,7 @@
   left: 60px;
   width: 334px;
   height: 346px;
-  object-fit: cover;
+  object-fit: scale-down ;
 }
 .genre55 {
   position: relative;
@@ -61,7 +61,8 @@
 .genre56 {
   position: relative;
   font-size: var(--font-size-xl);
-  color: var(--color-aqua-100);
+  /* color: var(--color-aqua-100); */
+  color: #60fb8c;
 }
 .genr {
   position: absolute;
@@ -104,7 +105,8 @@
 }
 .conditon1 {
   font-size: var(--font-size-3xl);
-  color: var(--color-aqua-100);
+  /* color: var(--color-aqua-100); */
+  color: #60fb8c;
 }
 .booktp,
 .con,
@@ -136,7 +138,8 @@
 .upoladed-by1 {
   text-decoration: none;
   position: relative;
-  color: var(--color-aqua-100);
+  /* color: var(--color-aqua-100); */
+  color: #60fb8c;
   cursor: pointer;
 }
 .up {
@@ -174,7 +177,7 @@
   font-size: var(--font-size-5xl);
   color: var(--color-white);
   font-family: var(--font-ruluko);
-  width: 100%;
+  width: 90%;
   
   overflow: auto;
 }

@@ -44,7 +44,8 @@
   flex-shrink: 0;
 }
 .genre25 {
-  color: var(--color-aqua-200);
+  /* color: var(--color-aqua-200); */
+  color: #60fb8c;
   width: 131.25px;
 }
 .gnre12 {
@@ -66,7 +67,8 @@
   flex-shrink: 0;
 }
 .condition38 {
-  color: var(--color-aqua-100);
+  /* color: var(--color-aqua-100); */
+  color: #60fb8c;
   width: 118.37px;
 }
 .order-status12,
@@ -74,7 +76,8 @@
   width: 107px;
 }
 .order-status13 {
-  color: var(--color-aqua-100);
+  /* color: var(--color-aqua-100); */
+  color: #60fb8c;
   width: 136px;
 }
 .status6 {
@@ -175,6 +178,7 @@
   );
   backdrop-filter: blur(20px);
   width: 1252px;
+  display: flex;
   height: 585px;
   flex-direction: row;
   flex-wrap: wrap;
@@ -189,6 +193,7 @@
   position: absolute;
   top: 60px;
   left: 0;
+  width: 100%;
   flex-direction: column;
   padding: 0 94px;
   align-items: center;

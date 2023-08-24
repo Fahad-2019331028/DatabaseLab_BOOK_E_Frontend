@@ -25,8 +25,6 @@ const SignupPage = () => {
   const onSignUpButtonClick = useCallback(async (e) => {
     e.preventDefault()
     try {
-
-
       const response = await api.post('/api/user/register', formData);
       console.log(response.data); // Response from the backend
       // Handle success or navigate to another page
@@ -139,7 +137,7 @@ const SignupPage = () => {
               <div className="confirm-password">Confirm Password</div>
               <input
                 className="confirm-password1"
-                type="text"
+                type="Password"
                 placeholder="Confirm Password"
                 required
                 id="conf_pass"

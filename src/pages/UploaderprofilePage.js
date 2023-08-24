@@ -54,6 +54,12 @@ const UploaderprofilePage = () => {
     navigate(`/bookdetail-page/${book_id}`);
   }, [navigate]);
 
+  const onReviewerProfileClick = (reviewer_id) => {
+    console.log("Clicked on reviewer's profile:", reviewer_id);
+    window.location.href = `/uploaderprofile-page/${reviewer_id}`;
+  };
+  
+  
   const onSubBttnClick = useCallback(() => {
     const anchor = document.querySelector("[data-scroll-to='reviewSec']");
     if (anchor) {
@@ -192,8 +198,10 @@ const UploaderprofilePage = () => {
         <div className="review-sec1">
           <h1 className="reviews1">Reviews</h1>
           {reviews.map((review) => (
-            <div className="rev3" key={review.id}>
-              <a className="user3">{review.Reviewer.username}</a>
+            <div className="rev3" key={review.review_id}>
+              <a className="user3" onClick={() => onReviewerProfileClick(review.reviewer_id)}>
+                      {review.Reviewer.username}
+                    </a>
               <p className="baal-baalbaal-baalbaal3">{review.review}</p>
             </div>
           ))}

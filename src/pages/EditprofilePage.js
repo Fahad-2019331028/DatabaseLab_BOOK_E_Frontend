@@ -167,7 +167,7 @@ const EditprofilePage = () => {
             <div className="name4">Confirm Password</div>
             <input
               className="confirm-password3"
-              type="text"
+              type="Password"
               placeholder="Confirm Password"
               id="conf_pass"
             />

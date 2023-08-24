@@ -90,7 +90,7 @@ const AddbookPage = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="price">
+          <div className="price4">
             <div className="add-photo-url">Author</div>
             <input
               className="autho"
@@ -102,7 +102,7 @@ const AddbookPage = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="price">
+          <div className="price4">
             <div className="add-photo-url">Genre</div>
             <input
               className="genre38"
@@ -137,7 +137,7 @@ const AddbookPage = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="booktyp">
+          <div className="booktyp85">
             <div className="add-photo-url">Condtion</div>
             <input
               className="condition55"

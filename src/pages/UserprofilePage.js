@@ -84,6 +84,12 @@ const UserprofilePage = () => {
   const onLogoutContainerClick = useCallback(() => {
     navigate("/login-page");
   }, [navigate]);
+
+  const onReviewerProfileClick = (reviewer_id) => {
+    console.log("Clicked on reviewer's profile:", reviewer_id);
+    navigate(`/uploaderprofile-page/${reviewer_id}`);
+  };
+  
   console.log(ratings)
   console.log(reviews)
   return (
@@ -190,7 +196,9 @@ const UserprofilePage = () => {
           <h1 className="reviews">Reviews</h1>
           {reviews.map((review) => (
             <div className="rev" key={review.id}>
-              <a className="user">{review.Reviewer.username}</a>
+              <a className="user" onClick={() => onReviewerProfileClick(review.reviewer_id)}>
+                      {review.Reviewer.username}
+                    </a>
               <p className="baal-baalbaal-baalbaal">{review.review}</p>
             </div>
           ))}

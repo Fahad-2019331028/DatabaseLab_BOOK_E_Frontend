@@ -7,7 +7,7 @@ const ReceivedPage = () => {
   const [orders, setOrders] = useState([]);
   // const [orders, setOrders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const booksPerPage=4;
+  const booksPerPage=3;
   const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -68,8 +68,8 @@ const ReceivedPage = () => {
   const onViewbookLinkClick = useCallback((book_id) => {
     navigate(`/bookdetail-page/${book_id}`);
   }, [navigate]);
-  const onOrderByClick = useCallback(() => {
-    navigate("/uploaderprofile-page");
+  const onOrderByClick = useCallback((user_id) => {
+    navigate(`/uploaderprofile-page/${user_id}`);
   }, [navigate]);
 
 
@@ -105,8 +105,8 @@ const ReceivedPage = () => {
           .map((order) => (
           <div className="order">
             <div className="order-section">
-              <div className="order-by">Order By</div>
-              <a className="order-by1" onClick={onOrderByClick}>
+              <div className="order-by">Ordered By</div>
+              <a className="order-by1" onClick={() => onOrderByClick(order.user.user_id)}>
                 {order.user.username}
               </a>
               <button className="confirm-bttn" onClick={() => confirmOrder(order.order_id)}>
@@ -118,7 +118,7 @@ const ReceivedPage = () => {
 
             </div>
             <div className="book6">
-              <img className="book-pic-icon6" alt="" src="/book-pic1@2x.png" />
+              <img className="book-pic-icon6" alt="" src={order.book.book_img_url} />
               <h2 className="title6">{order.book.title}</h2>
               <h4 className="author6">{order.book.author}</h4>
               <div className="gnre6">
