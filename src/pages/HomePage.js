@@ -59,26 +59,19 @@ const HomePage = () => {
     },
     []
   );
-  // const onViewbookLink1Click = useCallback(() => {
-  //   navigate("/bookdetail-page");
-  // }, [navigate]);
-
-  // const onViewbookLink2Click = useCallback(() => {
-  //   navigate("/bookdetail-page");
-  // }, [navigate]);
-
-  // const onViewbookLink3Click = useCallback(() => {
-  //   navigate("/bookdetail-page");
-  // }, [navigate]);
-
-  // const onViewbookLink4Click = useCallback(() => {
-  //   navigate("/bookdetail-page");
-  // }, [navigate]);
-
-  // const onViewbookLink5Click = useCallback(() => {
-  //   navigate("/bookdetail-page");
-  // }, [navigate]);
-
+  const handleConfirmOrder = async (book_id) => {
+    try {
+      const response = await api.post("api/order/place-order",  {book_id});
+      console.log(response)
+      toast.success("Order placed")
+    } catch (error) {
+      console.error(error);
+      toast.error("Couldn't place order")
+    }
+  };
+  const onAddButtonClick = useCallback(() => {
+    navigate("/add-book");
+  }, [navigate]);
   const openFilterByPopup = useCallback(() => {
     setFilterByPopupOpen(true);
   }, []);
@@ -105,8 +98,8 @@ const HomePage = () => {
     <>
       <div className="home-page">
         <main className="body1">
-          <h4 className="for-you">For You..</h4>
-          <h1 className="available-books">Available BOOKS</h1>
+          {/* <h4 className="for-you">For You..</h4> */}
+          {/* <h1 className="available-books">Available BOOKS</h1> */}
           
           <div className="book-sec">
           {books
@@ -140,6 +133,9 @@ const HomePage = () => {
                   </div>
                   <div className="view-book">View Book.......</div>
                 </a>
+                <button className="viewbook-link" onClick={() => handleConfirmOrder(book.book_id)}>
+                  <div className="view-book">Order</div>
+                </button>
               </div>
               ))}
               <div className="pagination">
@@ -186,7 +182,9 @@ const HomePage = () => {
             <img className="book-e-icon1" alt="" src="/bookeicon.svg" />
           </div>
           <div className="nav-bttn">
-            <button className="home-page1">Home Page</button>
+          <button className="home-page6" onClick={onAddButtonClick}>
+              Add Books
+            </button>
             <button className="profile" onClick={onProfileClick}>
               <img className="pr-icon" alt="" src="/pr-icon.svg" />
               <button className="home-page1">Profile</button>

@@ -1,4 +1,4 @@
-import { useState,useCallback } from "react";
+import { useState,useEffect,useCallback } from "react";
 import { Select } from "@chakra-ui/react";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,7 @@ import {toast} from "react-toastify"
 import "./AddbookPage.css";
 const AddbookPage = () => {
   const navigate = useNavigate();
+  const [genres, setGenres] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -16,6 +17,20 @@ const AddbookPage = () => {
     book_type: "", // Default value
     price: "",
   });
+  const fetchGenres = async () => {
+    try {
+      const response = await api.get("/api/genre/all");
+      setGenres(response.data);
+    } catch (error) {
+      console.error(error);
+      // Handle error here
+    }
+  };
+  
+  useEffect(() => {
+    fetchGenres();
+  }, []);
+  
   const onIconContainerClick = useCallback(() => {
     navigate("/home-page");
   }, [navigate]);
@@ -55,7 +70,7 @@ const AddbookPage = () => {
       [id]: value,
     }));
   };
-
+console.log(genres)
   return (
     <div className="addbook-page">
       <img className="pic-left-align-icon" alt="" src="/pic-leftalign@2x.png" />
@@ -106,15 +121,29 @@ const AddbookPage = () => {
           </div>
           <div className="price4">
             <div className="add-photo-url">Genre</div>
-            <input
-              className="genre38"
-              type="text"
+            <Select
+              className="option1"
+              variant="outline"
+              w="782px"
+              name="Genre"
+              required id="genre"
               placeholder="Genre"
-              required
-              id="genre"
+              textColor="#123454"
+              backgroundColor="#c0eef5b4"
+              borderColor="#114231"
+              focusBorderColor="#325e5b"
               value={formData.genre}
               onChange={handleInputChange}
-            />
+              style={{ fontSize: "var(--font-size-xl)" }} // Custom font size
+            >
+              {genres.map((genre) => (
+                <option key={genre.id} value={genre.name}>
+                  {genre.name}
+                </option>
+              ))}
+            </Select>
+
+
           </div>
           <div className="description">
             <div className="description1">Description</div>

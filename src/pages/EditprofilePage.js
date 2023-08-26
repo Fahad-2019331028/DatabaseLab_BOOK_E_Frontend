@@ -1,4 +1,4 @@
-import { useState,useCallback } from "react";
+import { useState,useEffect,useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api"; // Import the axios instance you've defined
 import {  toast } from "react-toastify";
@@ -13,7 +13,8 @@ const EditprofilePage = () => {
     username: "",
     profile_picture: "",
     email: "",
-    password: ""
+    password: "",
+    confirm_password:""
   });
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +23,21 @@ const EditprofilePage = () => {
       [name]: value
     }));
   };
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const response = await api.get("/api/user/profile"); // Assuming this endpoint fetches user profile data
+        const userProfile = response.data;
+        setFormData(userProfile);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProfileData();
+  }, []);
+  console.log(formData)
   const onDoneButtonClick = useCallback(async (e) => {
     e.preventDefault();
     try {
@@ -171,7 +187,10 @@ const EditprofilePage = () => {
               className="confirm-password3"
               type="Password"
               placeholder="Confirm Password"
-              id="conf_pass"
+              id="confirm_password_input"
+              name="confirm_password"
+              value={formData.confirm_password}
+              onChange={handleInputChange}
             />
           </div>
           <button className="done-button" onClick={onDoneButtonClick}>

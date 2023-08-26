@@ -80,6 +80,7 @@ const UploaderprofilePage = () => {
       });
       toast.success("Rating submitted successfully!");
     } catch (error) {
+      toast.error("You haven't done any transaction with this User")
       console.error("Error submitting rating:", error);
     }
   };
@@ -92,6 +93,7 @@ const UploaderprofilePage = () => {
       });
       toast.success("Review submitted successfully!");
     } catch (error) {
+      toast.error("You haven't done any transaction with this User")
       console.error("Error submitting review:", error);
     }
   };
@@ -209,7 +211,7 @@ const UploaderprofilePage = () => {
               <a className="user3" onClick={() => onReviewerProfileClick(review.reviewer_id)}>
                       {review.Reviewer.username}
                     </a>
-              <p className="baal-baalbaal-baalbaal3">{review.review}</p>
+              <p className="reviewText">{review.review}</p>
             </div>
           ))}
         </div>
@@ -222,7 +224,7 @@ const UploaderprofilePage = () => {
       <input
         className="rating8"
         type="number"
-        placeholder="Rating"
+        placeholder="Rating 0 to 10"
         min={0}
         max={10}
         required

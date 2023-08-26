@@ -334,7 +334,7 @@
   color: inherit;
   cursor: pointer;
 }
-.baal-baalbaal-baalbaal {
+.reviewText {
   margin: 0;
   position: relative;
   display: inline-block;
@@ -476,7 +476,7 @@
 }
 .nav-bttn5,
 .navbar8 {
-  width: 411px;
+  width: 700px;
   justify-content: space-between;
 }
 .navbar8 {
@@ -498,6 +498,7 @@
   font-size: var(--font-size-11xl);
   color: var(--color-azure-300);
   font-family: var(--font-ruluko);
+  gap: 500px;
 }
 .userprofile-page {
   position: relative;

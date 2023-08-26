@@ -186,7 +186,7 @@ const UserprofilePage = () => {
             </div>
             
           </div>
-          <div className="bttn1">
+          {/* <div className="bttn1">
             <button className="add-button" onClick={onAddButtonClick}>
               <div className="t">Add Books</div>
             </button>
@@ -196,7 +196,7 @@ const UserprofilePage = () => {
             <button className="received-button" onClick={onReceivedButtonClick}>
               <div className="t">Received Orders</div>
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="review-sec">
           <h1 className="reviews">Reviews</h1>
@@ -205,7 +205,7 @@ const UserprofilePage = () => {
               <a className="user" onClick={() => onReviewerProfileClick(review.reviewer_id)}>
                       {review.Reviewer.username}
                     </a>
-              <p className="baal-baalbaal-baalbaal">{review.review}</p>
+              <p className="reviewText">{review.review}</p>
             </div>
           ))}
           
@@ -220,10 +220,20 @@ const UserprofilePage = () => {
           <button className="home-page6" onClick={onHomePageClick}>
             Home Page
           </button>
-          <button className="profile10">
+          {/* <button className="profile10">
             <img className="pr-icon5" alt="" src="/pr-icon.svg" />
             <button className="home-page6">Profile</button>
-          </button>
+          </button> */}
+          <button className="home-page6" onClick={onMyorderButtonClick}>
+              My Orders
+            </button>
+            <button className="home-page6" onClick={onAddButtonClick}>
+              Add Books
+            </button>
+            <button className="home-page6" onClick={onReceivedButtonClick}>
+              Received Orders
+            </button>
+            
           <div className="logout5" onClick={onLogoutContainerClick}>
             <button className="log-out5">Log Out</button>
             <img className="logout-icon5" alt="" src="/logout-icon.svg" />
