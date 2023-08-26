@@ -1,7 +1,7 @@
 import { useState,useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api"; // Import the axios instance you've defined
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./EditprofilePage.css";
 const EditprofilePage = () => {
@@ -47,6 +47,8 @@ const EditprofilePage = () => {
   }, [navigate]);
 
   const onLogoutContainerClick = useCallback(() => {
+    localStorage.removeItem("token");
+    toast.success("User logged out")
     navigate("/login-page");
   }, [navigate]);
 

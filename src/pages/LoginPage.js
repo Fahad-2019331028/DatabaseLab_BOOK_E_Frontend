@@ -1,6 +1,7 @@
 import { useCallback,useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
+import {toast} from "react-toastify"
 import "./LoginPage.css";
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -22,10 +23,11 @@ const LoginPage = () => {
       console.log(response.data.token);
       localStorage.setItem("token",response.data.token) // Response from the backend, including token
       // Store the token in local storage or context
-      
+      toast.success("Welcome back")
       navigate("/home-page");// Redirect to another page or perform other actions
     } catch (error) {
       console.error(error.response.data); // Error response from the backend
+      toast.error("Invalid credentials")
       // Handle error, show error message to the user
     }
   }, [navigate,formData]);

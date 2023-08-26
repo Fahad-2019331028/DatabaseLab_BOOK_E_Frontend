@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api"; // Import the axios instance you've defined
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./SignupPage.css";
 const SignupPage = () => {
@@ -28,9 +28,11 @@ const SignupPage = () => {
       const response = await api.post('/api/user/register', formData);
       console.log(response.data); // Response from the backend
       // Handle success or navigate to another page
+      toast.success("Registration successful")
       navigate('/login-page'); // Redirect to the desired page
     } catch (error) {
-      console.error(error.response.data); // Error response from the backend
+      console.error(error.response.data);
+      toast.error("Fill the form correctly") // Error response from the backend
       // Handle error, show error message to the user
     }
   }, [navigate, formData]);
@@ -158,7 +160,6 @@ const SignupPage = () => {
           <img className="book-e-icon3" alt="" src="/bookeicon.svg" />
         </div>
       </header>
-      <ToastContainer /> {/* React Toastify container */}
 
     </div>
   );

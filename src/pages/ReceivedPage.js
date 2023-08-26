@@ -1,6 +1,7 @@
 import { useState,useEffect,useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
+import {toast} from "react-toastify"
 import "./ReceivedPage.css";
 const ReceivedPage = () => {
   const navigate = useNavigate();
@@ -11,47 +12,51 @@ const ReceivedPage = () => {
   const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  const fetchOrdersAndBooks = async () => {
+    try {
+      const response = await api.get("/api/order/received-orders");
+      const fetchedOrdersObject = response.data;
+      
+      // Access the 'receivedOrders' array from the fetchedOrdersObject
+      const fetchedOrders = fetchedOrdersObject.receivedOrders;
+  
+      // Fetch book information and user information for each order
+      const ordersWithBooksAndUsers = await Promise.all(
+        fetchedOrders.map(async (order) => {
+          try {
+            const bookResponse = await api.get(`/api/book/book/${order.book_id}`);
+            const book = bookResponse.data;
+  
+            // Fetch user information using the buyer_id
+            const userResponse = await api.get(`/api/user/uploader-profile/${order.buyer_id}`);
+            const user = userResponse.data;
+  
+            return { ...order, book, user };
+          } catch (error) {
+            console.error(error);
+            return order;
+          }
+        })
+      );
+  
+      setOrders([...ordersWithBooksAndUsers]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchOrdersAndBooks = async () => {
-      try {
-        const response = await api.get("/api/order/received-orders");
-        const fetchedOrdersObject = response.data;
-        
-        // Access the 'receivedOrders' array from the fetchedOrdersObject
-        const fetchedOrders = fetchedOrdersObject.receivedOrders;
-    
-        // Fetch book information and user information for each order
-        const ordersWithBooksAndUsers = await Promise.all(
-          fetchedOrders.map(async (order) => {
-            try {
-              const bookResponse = await api.get(`/api/book/book/${order.book_id}`);
-              const book = bookResponse.data;
-    
-              // Fetch user information using the buyer_id
-              const userResponse = await api.get(`/api/user/uploader-profile/${order.buyer_id}`);
-              const user = userResponse.data;
-    
-              return { ...order, book, user };
-            } catch (error) {
-              console.error(error);
-              return order;
-            }
-          })
-        );
-    
-        setOrders(ordersWithBooksAndUsers);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    
     fetchOrdersAndBooks();
   }, []);
   const confirmOrder = async (order_id) => {
     try {
       await api.post(`/api/order/confirm-order/${order_id}`);
-      window.location.reload(); // Refresh the page after confirming
+      toast.success("Order confirmed")
+      fetchOrdersAndBooks()
+      // window.location.reload(); // Refresh the page after confirming
     } catch (error) {
+      toast.error("Couldn't confirm")
       console.error(error);
     }
   };
@@ -59,8 +64,11 @@ const ReceivedPage = () => {
   const discardOrder = async (order_id) => {
     try {
       await api.post(`/api/order/discard-order/${order_id}`);
-      window.location.reload(); // Refresh the page after discarding
+      toast.success("Order discarded")
+      fetchOrdersAndBooks()
+      // window.location.reload(); // Refresh the page after discarding
     } catch (error) {
+      toast.error("Couldn't discard")
       console.error(error);
     }
   };
@@ -86,6 +94,8 @@ const ReceivedPage = () => {
   }, [navigate]);
 
   const onLogoutContainerClick = useCallback(() => {
+    localStorage.removeItem("token");
+    toast.success("User logged out")
     navigate("/login-page");
   }, [navigate]);
   orders.map((order)=> (

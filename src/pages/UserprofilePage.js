@@ -2,6 +2,8 @@ import { useState,useEffect,useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from '../services/api';
 import "./UserprofilePage.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const UserprofilePage = () => {
   const navigate = useNavigate();
   const [books, setBooks] = useState([]);
@@ -48,7 +50,7 @@ const UserprofilePage = () => {
   }, []);
   const totalPages = Math.ceil(books.length / booksPerPage);
   const onEditBttnClick = useCallback(() => {
-    navigate("/sign-up-page1");
+    navigate("/edit-profile");
   }, [navigate]);
 
   const onViewbookLinkClick = useCallback((book_id) => {
@@ -57,15 +59,15 @@ const UserprofilePage = () => {
 
   
   const onAddButtonClick = useCallback(() => {
-    navigate("/sign-up-page2");
+    navigate("/add-book");
   }, [navigate]);
 
   const onMyorderButtonClick = useCallback(() => {
-    navigate("/sign-up-page3");
+    navigate("/my-order");
   }, [navigate]);
 
   const onReceivedButtonClick = useCallback(() => {
-    navigate("/sign-up-page4");
+    navigate("/received-order");
   }, [navigate]);
 
   const onUserClick = useCallback(() => {
@@ -82,6 +84,8 @@ const UserprofilePage = () => {
   }, [navigate]);
 
   const onLogoutContainerClick = useCallback(() => {
+    localStorage.removeItem("token");
+    toast.success("User logged out")
     navigate("/login-page");
   }, [navigate]);
 
@@ -117,8 +121,10 @@ const UserprofilePage = () => {
             </div>
           </div>
           <div className="rat">
-            <div className="rating">Rating</div>
-            <div className="email10">{user.rating || "N/A"}</div>
+            <div className="rating">{ratings?.averageRating > 1 && 
+                <div className="rating2">&#9733;{ratings?.averageRating}{""}({ratings.ratingCount})
+                </div>}</div>
+            <div className="email10">Rating</div>
           </div>
           <img
             className="uploader-pic-icon"

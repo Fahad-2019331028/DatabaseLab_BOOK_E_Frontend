@@ -2,6 +2,8 @@ import { useState,useEffect,useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import "./MyorderPage.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const MyorderPage = () => {
   const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
@@ -56,6 +58,8 @@ const MyorderPage = () => {
   }, [navigate]);
 
   const onLogoutContainerClick = useCallback(() => {
+    localStorage.removeItem("token");
+    toast.success("User logged out")
     navigate("/login-page");
   }, [navigate]);
 

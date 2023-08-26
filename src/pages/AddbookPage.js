@@ -2,6 +2,7 @@ import { useState,useCallback } from "react";
 import { Select } from "@chakra-ui/react";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import {toast} from "react-toastify"
 import "./AddbookPage.css";
 const AddbookPage = () => {
   const navigate = useNavigate();
@@ -28,6 +29,8 @@ const AddbookPage = () => {
   }, [navigate]);
 
   const onLogoutContainerClick = useCallback(() => {
+    localStorage.removeItem("token");
+    toast.success("User logged out")
     navigate("/login-page");
   }, [navigate]);
 
@@ -37,12 +40,11 @@ const AddbookPage = () => {
       // Send the book data to the backend
       const response = await api.post("/api/book/add", formData);
 
-      if (response.status === 201) {
-        // Book added successfully
-        navigate("/userprofile-page");
-      }
+      toast.success("Book added successfully")
+      navigate("/userprofile-page");
     } catch (error) {
       console.error(error);
+      toast.error("Couldn't add book");
       // Handle error here
     }
   }, [formData, navigate]);

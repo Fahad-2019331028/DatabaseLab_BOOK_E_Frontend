@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./UploaderprofilePage.css";
 import { api } from "../services/api";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const UploaderprofilePage = () => {
   const navigate = useNavigate();
   const { user_id } = useParams();
@@ -67,7 +69,7 @@ const UploaderprofilePage = () => {
     }
   }, []);
   const handleRatingChange = (event) => {
-    setRating(Number(event.target.value));
+    setRating(event.target.value);
   };
   const handleRatingSubmit = async () => {
     try {
@@ -76,7 +78,7 @@ const UploaderprofilePage = () => {
         rating: rating,
         recipient_id: user_id,
       });
-      alert("Rating submitted successfully!");
+      toast.success("Rating submitted successfully!");
     } catch (error) {
       console.error("Error submitting rating:", error);
     }
@@ -88,7 +90,7 @@ const UploaderprofilePage = () => {
         review: review,
         recipient_id: user_id,
       });
-      alert("Review submitted successfully!");
+      toast.success("Review submitted successfully!");
     } catch (error) {
       console.error("Error submitting review:", error);
     }
@@ -106,6 +108,8 @@ const UploaderprofilePage = () => {
   }, [navigate]);
 
   const onLogoutContainerClick = useCallback(() => {
+    localStorage.removeItem("token");
+    toast.success("User logged out")
     navigate("/login-page");
   }, [navigate]);
   console.log(ratings)
@@ -127,7 +131,10 @@ const UploaderprofilePage = () => {
           <div className="name7">{user.name}</div>
           <div className="just-info1">
             <div className="rat1">
-              <div className="rating2">{ratings.averageRating} ({ratings.ratingCount})</div>
+              {ratings?.averageRating > 1 && 
+                <div className="rating2">
+                  &#9733; {ratings?.averageRating} {" "} ({ratings.ratingCount})
+                </div>}
               <div className="rating3">Rating</div>
             </div>
             <div className="email12">

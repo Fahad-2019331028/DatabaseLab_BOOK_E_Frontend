@@ -3,6 +3,7 @@ import {
   Route,
   useNavigationType,
   useLocation,
+  useNavigate
 } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import HomePage from "./pages/HomePage";
@@ -15,10 +16,16 @@ import EditprofilePage from "./pages/EditprofilePage";
 import UserprofilePage from "./pages/UserprofilePage";
 import UploaderprofilePage from "./pages/UploaderprofilePage";
 import BookdetailPage from "./pages/BookdetailPage";
-import { useEffect } from "react";
+import { ToastContainer } from 'react-toastify';
+import { useState, useEffect } from "react";
+import { api } from "./services/api";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
   const action = useNavigationType();
+  const navigate = useNavigate();
   const location = useLocation();
   const pathname = location.pathname;
 
@@ -28,85 +35,74 @@ function App() {
     }
   }, [action, pathname]);
 
-  useEffect(() => {
-    let title = "";
-    let metaDescription = "";
-
-    switch (pathname) {
-      case "/":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/home-page":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/login-page":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/sign-up-page":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/sign-up-page4":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/sign-up-page3":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/sign-up-page2":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/sign-up-page1":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/userprofile-page":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/uploaderprofile-page":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/bookdetail-page":
-        title = "";
-        metaDescription = "";
-        break;
-    }
-
-    if (title) {
-      document.title = title;
-    }
-
-    if (metaDescription) {
-      const metaDescriptionTag = document.querySelector(
-        'head > meta[name="description"]'
-      );
-      if (metaDescriptionTag) {
-        metaDescriptionTag.content = metaDescription;
+  useEffect(()=> {
+    const getUser = async () => {
+      try {
+        const response = await api.get('/api/user/profile');
+        setUser(response.data);
+        if(PUBLIC_ROUTES.includes(location.pathname)) navigate("/home-page")
+      } catch (e) {
+        setUser(null);
+        console.error(e);
+        if(PROTECTED_ROUTES.includes(location.pathname)) navigate("/login-page")
+      } finally {
+        setLoading(false)
       }
     }
-  }, [pathname]);
+    getUser();
+  }, [location])
+
+  if(loading) return <></>
 
   return (
-    <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/home-page" element={<HomePage />} />
-      <Route path="/login-page" element={<LoginPage />} />
-      <Route path="/sign-up-page" element={<SignupPage />} />
-      <Route path="/sign-up-page4" element={<ReceivedPage />} />
-      <Route path="/sign-up-page3" element={<MyorderPage />} />
-      <Route path="/sign-up-page2" element={<AddbookPage />} />
-      <Route path="/sign-up-page1" element={<EditprofilePage />} />
-      <Route path="/userprofile-page" element={<UserprofilePage />} />
-      <Route path="/uploaderprofile-page/:user_id" element={<UploaderprofilePage />} />
-      <Route path="/bookdetail-page/:book_id" element={<BookdetailPage />} />
-    </Routes>
+    <>
+      <Routes>
+        {user ? 
+          <>      
+            <Route path="/edit-profile" element={<EditprofilePage />} />
+            <Route path="/userprofile-page" element={<UserprofilePage />} />
+            <Route path="/home-page" element={<HomePage />} />
+            <Route path="/received-order" element={<ReceivedPage />} />
+            <Route path="/my-order" element={<MyorderPage />} />
+            <Route path="/add-book" element={<AddbookPage />} />
+            <Route path="/uploaderprofile-page/:user_id" element={<UploaderprofilePage />} />
+            <Route path="/bookdetail-page/:book_id" element={<BookdetailPage />} />
+          </>
+          : 
+          <>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/login-page" element={<LoginPage />} />
+            <Route path="/sign-up-page" element={<SignupPage />} />
+          </>}
+      </Routes>
+      <ToastContainer 
+        position="top-center"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        theme="dark"
+      />
+    </>
   );
 }
+
+const PUBLIC_ROUTES = [
+  "/login-page",
+  "/sign-up-page",
+  "/"
+]
+
+const PROTECTED_ROUTES = [
+  "/edit-profile",
+  "/userprofile-page",
+  "/home-page",
+  "/received-order",
+  "/my-order",
+  "/add-book",
+  "/uploaderprofile-page/:user_id",
+  "/bookdetail-page/:book_id"
+]
+
 export default App;

@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { useParams } from "react-router-dom";
 import "./BookdetailPage.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import {  toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 const BookdetailPage = () => {
   const navigate = useNavigate();
   const { book_id } = useParams();
@@ -17,17 +17,10 @@ const BookdetailPage = () => {
       // Send the book_id to the backend to place the order
       const response = await api.post("api/order/place-order", { book_id: book.book_id });
       console.log(response)
-      if (response.status === 200 && response.data.order) {
-        toast("Order Placed. Now Fuck Off")
-        console.log(response.data.message);
-        // You can perform any additional actions here, such as showing a success message or navigating to a new page
-      }
-      else
-      {
-        toast("Order already placed")
-      }
+      toast.success("Order placed")
     } catch (error) {
       console.error(error);
+      toast.error("Couldn't place order")
       // Handle error here
     }
   };
@@ -48,6 +41,8 @@ const BookdetailPage = () => {
   }, [navigate]);
 
   const onLogoutContainerClick = useCallback(() => {
+    localStorage.removeItem("token");
+    toast.success("User logged out")
     navigate("/login-page");
   }, [navigate]);
 
@@ -78,7 +73,7 @@ const BookdetailPage = () => {
   }
   return (
     <div className="bookdetail-page">
-      <ToastContainer/>
+      {/* <ToastContainer/> */}
       <img
         className="pic-left-align-icon4"
         alt=""

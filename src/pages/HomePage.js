@@ -3,7 +3,7 @@ import FilterBy from "../components/FilterBy";
 import PortalPopup from "../components/PortalPopup";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./HomePage.css";
 const HomePage = () => {
@@ -92,6 +92,8 @@ const HomePage = () => {
   }, [navigate]);
 
   const onLogoutContainerClick = useCallback(() => {
+    localStorage.removeItem("token");
+    toast.success("User logged out")
     navigate("/login-page");
   }, [navigate]);
   const onPageChange = (pageNumber) => {
@@ -177,7 +179,6 @@ const HomePage = () => {
             <div className="filter-by1">Filter By</div>
             <div className="filter-bttn-child" />
           </button>
-          <ToastContainer /> {/* React Toastify container */}
         </main>
         <header className="navbar1">
           <div className="icon1">
